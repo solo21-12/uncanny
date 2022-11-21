@@ -1,7 +1,6 @@
-import React from 'react';
-import { MarkerType, Position } from 'reactflow';
+import { MarkerType } from 'reactflow';
 
-export const nodes = [
+export const node = [
     {
         id: '1',
         type: 'custom',
@@ -12,7 +11,7 @@ export const nodes = [
                 // handle1: 'smoothstep',
             },
         },
-        position: { x: 600, y: 80 },
+        position: { x: 650, y: 80 },
     },
     {
         id: '2',
@@ -24,7 +23,7 @@ export const nodes = [
                 // handle1: 'smoothstep',
             },
         },
-        position: { x: 850, y: 20 },
+        position: { x: 1050, y: 20 },
     },
     {
         id: '3',
@@ -36,7 +35,7 @@ export const nodes = [
                 // handle1: 'smoothstep',
             },
         },
-        position: { x: 850, y: 400 },
+        position: { x: 1050, y: 400 },
     },
     {
         id: '4',
@@ -56,11 +55,11 @@ export const nodes = [
         data: {
             label: ' ',
             selects: {
-                'handle-0': 'smoothstep',
+                'handle-0': 'Find Edges',
                 // handle1: 'smoothstep',
             },
         },
-        position: { x: 600, y: 240 },
+        position: { x: 650, y: 260 },
     },
     {
         id: '6',
@@ -72,7 +71,7 @@ export const nodes = [
                 // handle2: 'smoothstep', 
             },
         },
-        position: { x: 600, y: 440 },
+        position: { x: 650, y: 440 },
     },
     {
         id: '7',
@@ -80,58 +79,28 @@ export const nodes = [
         data: {
             label: ' ',
             selects: {
-                'handle-0': 'smoothstep',
-                'handle-1': 'smoothstep', 
-                'handle-2': 'smoothstep',
-                'handle-3': 'smoothstep',
-                'handle-4': 'smoothstep',
+                'handle-0': 'k_dpm_2a',
+                'handle-1': 'Variant', 
+                'handle-2': 'Creativity',
+                'handle-3': 'Details',
+                'handle-4': 'seed',
             },
         },
-        position: { x: 300, y: 80 },
+        position: { x: 350, y: 80 },
     },
-    // {
-    //     id: '6',
-    //     type: 'output',
-    //     style: {
-    //         background: '#63B3ED',
-    //         color: 'white',
-    //         width: 100,
-    //     },
-    //     data: {
-    //         label: 'Node',
-    //         selects: {
-    //             'handle-0': ' ',
-    //             'handle-1': ' ',
-    //         },
-    //     },
-    //     position: { x: 400, y: 325 },
-    //     sourcePosition: Position.Right,
-    //     targetPosition: Position.Left,
-    // },
-    // {
-    //     id: '7',
-    //     type: 'default',
-    //     className: 'annotation',
-    //     data: {
-    //         label: (
-
-    //             'On the bottom left you see the Controls and the bottom right the MiniMap. This is also just a node 🥳'
-
-    //         ),
-    //         selects: {
-    //             'handle-0': ' ',
-    //             'handle-1': ' ',
-    //         },
-    //     },
-    //     draggable: false,
-    //     selectable: false,
-    //     position: { x: 150, y: 400 },
-    // },
 ];
 
 export const edges = [
-    { id: 'e1-2', source: '1', target: '2',  },
-    { id: 'e1-3', source: '1', target: '3', animated: true },
+    { id: 'e1-2', source: '7', target: '1'  },
+    { id: 'e1-3', source: '7', target: '5', targetHandle: 'b-2',  },
+    { id: 'e1-4', source: '6', target: '5',sourceHandle:'i-1',
+    markerEnd: {
+        type: MarkerType.Arrow,
+      },
+
+},
+    { id: 'e2-6', source: '6', target: '2' ,  },
+    { id: 'e1-7', source: '1', target: '3' },
     {
         id: 'e4-5',
         source: '4',

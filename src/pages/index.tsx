@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useCallback } from "react";
 import ReactFlow, {
   addEdge,
   MiniMap,
@@ -6,18 +7,29 @@ import ReactFlow, {
   Background,
   useNodesState,
   useEdgesState,
-} from 'reactflow';
+  Connection,
+  Edge,
+  applyEdgeChanges,
+  applyNodeChanges,
+  NodeChange,
+  EdgeChange,
+  
+  
+} from "reactflow";
 
-import { nodes as initialNodes, edges as initialEdges } from './../components/initial-elements';
-import CustomNode from './../components/CustomNode';
-import ImagePreview1 from './../components/imagePreview1';
-import SeedNode from './../components/seedNode';
-import BasicFilter2 from './../components/basicFilter2';
-import InvertImage from './../components/invertImage';
-import ImagePreview2 from './../components/imagePreview2';
-import Node2 from './../components/node-2';
+import {
+  node as initialNodes,
+  edges as initialEdges,
+} from "./../components/initial-elements";
+import CustomNode from "./../components/CustomNode";
+import ImagePreview1 from "./../components/imagePreview1";
+import SeedNode from "./../components/seedNode";
+import BasicFilter2 from "./../components/basicFilter2";
+import InvertImage from "./../components/invertImage";
+import ImagePreview2 from "./../components/imagePreview2";
+import Node2 from "./../components/node-2";
 
-import 'reactflow/dist/style.css';
+import "reactflow/dist/style.css";
 // import './overview.css';
 
 const nodeTypes = {
@@ -34,26 +46,37 @@ const minimapStyle = {
   height: 120,
 };
 
-const onInit = (reactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
+const onInit = (reactFlowInstance: any) =>
+  console.log("flow loaded:", reactFlowInstance);
 
 const OverviewFlow = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
-
-  // we are using a bit of a shortcut here to adjust the edge type
-  // this could also be done with a custom edge for example
-  // const edgesWithUpdatedTypes = edges.map((edge) => {
-  //   if (edge.sourceHandle) {
-  //     const edgeType = nodes.find((node) => node.type === 'custom').data.selects[edge.sourceHandle];
-  //     edge.type = edgeType;
-  //   }
-
-  //   return edge;
-  // });
-
+  
+  const [nodes, setNodes] = useNodesState(initialNodes);
+  const [edges, setEdges] = useEdgesState(initialEdges);
+  const onNodesChange = useCallback(
+    (change: NodeChange[]) => setNodes((nod) => applyNodeChanges(change, nod)),
+    [setNodes]
+  );
+  const onEdgesChange = useCallback(
+    (change: EdgeChange[]) => setEdges((edg) => applyEdgeChanges(change, edg)),
+    [setEdges]
+  );
+  const onConnect = useCallback(
+    (params: Edge<any> | Connection) => setEdges((eds) => addEdge(params, eds)),
+    [setEdges]
+  );
+  const edgeOptions = {
+    animated: false,
+    style: {
+      stroke: "#87CEEB",
+    },
+  };
+  const connectionLineStyle = { stroke: "#87CEEB" };
   return (
-    <div style={{ width: '100%', height: '100vh' }} className= "" >
+    <div
+      style={{ width: "100%", height: "100vh" }}
+      className=" bg-neutral-700 "
+    >
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -64,6 +87,8 @@ const OverviewFlow = () => {
         fitView
         attributionPosition="top-right"
         nodeTypes={nodeTypes}
+        defaultEdgeOptions={edgeOptions}
+        connectionLineStyle={connectionLineStyle}
       >
         <MiniMap style={minimapStyle} />
         <Controls />

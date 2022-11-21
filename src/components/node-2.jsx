@@ -1,93 +1,75 @@
 import React, { memo } from 'react';
-import { Handle, useReactFlow, useStoreApi } from 'reactflow';
-import { AiOutlineMinus } from 'react-icons/ai'
-
-const options = [
-  {
-    value: 'smoothstep',
-    label: 'Smoothstep',
-  },
-  {
-    value: 'step',
-    label: 'Step',
-  },
-  {
-    value: 'default',
-    label: 'Bezier (default)',
-  },
-  {
-    value: 'straight',
-    label: 'Straight',
-  },
-];
-
-function Select({ value, handleId, nodeId }) {
-  const { setNodes } = useReactFlow();
-  const store = useStoreApi();
-
-  const onChange = (evt) => {
-    const { nodeInternals } = store.getState();
-    setNodes(
-      Array.from(nodeInternals.values()).map((node) => {
-        if (node.id === nodeId) {
-          node.data = {
-            ...node.data,
-            selects: {
-              ...node.data.selects,
-              [handleId]: evt.target.value,
-            },
-          };
-        }
-
-        return node;
-      })
-    );
-  };
-
-  return (
-    <div className="custom-node__select">
-
-      <select className="nodrag bg-neutral-800 text-white " onChange={onChange} value={value}>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      {/* <div className='text-white mt-4'> Input </div> */}
-      <Handle type="source" position="right" id={handleId} />
-    </div>
-  );
-}
-
+import { HiOutlineDotsHorizontal } from "react-icons/hi"
+import Select from "../components/select.tsx"
+import { Handle } from "reactflow"
+import Options from './common/options';
 function Node2({ id, data }) {
+  const myStyle = {
+    position: 'absolute',
+    top: '8%',
+    right: '-5%',
+    height: '14px',
+    width: '8px',
+    backgroundColor: 'gray',
+    overFlow: 'hidden',
+    borderRadius: '0 150px 150px 0',
+    transform: ' translate(-50%, -50%)'
+  }
+  const options = [
+    {
+      title: '2ImageIn'
+    },
+    {
+      title: 'Var Amount'
+    },
+    {
+      title: 'CFG Scale'
+    },
+    {
+      title: 'Steps'
+    },
+    {
+      title: 'Sampler'
+    },
+    {
+      title: 'Seed'
+    },
+
+  ]
   return (
-    <>
-      <div className='bg-neutral-700 text-white'>
-        <div className="custom-node__header text-center w-48 ">
+    <div className='bg-neutral-800 text-white rounded-lg w-[220px]'>
+      <div className=' flex  justify-between py-1 pb-2 rounded-xl'>
+        <div></div>
+        <div className=" text-[13px]">
           img2img Node-2
         </div>
+        <div className=' text-blue-400 align-middle mr-5'>
+          <HiOutlineDotsHorizontal />
+        </div>
       </div>
-      <div className='bg-neutral-700 text-right text-white p-2 '> 2 image </div>
-
-      <div className='bg-neutral-800 text-white p-2 '>
+      <div className=' text-right  p-2  text-[10px] text-gray-400'> 2 image
+      </div>
+      <div className='  max-w-[180px]  text-[12px] mx-auto py-3  font-light'>
         Futuristic translucent basketball
         <div> sneaker design </div>
       </div>
 
-      <div className="custom-node__body bg-neutral-700 ">
+      <div className="custom-node__body ">
         {Object.keys(data.selects).map((handleId) => (
           <Select key={handleId} nodeId={id} value={data.selects[handleId]} handleId={handleId} />
         ))}
       </div>
-      <div className=' bg-neutral-700 text-white '>
-        <div> Steps </div>
-        <div> Steps </div>
-        <div> Steps </div>
-        <div> Steps </div>
-        <div> Steps </div>
+      <div className=' text-gray-400 text-[12px] flex flex-col justify-between'>
+        {
+          options.map(option => {
+            return (
+              <Options title={option.title} key={option.title} />
+            )
+          })
+        }
+        <Handle type="source" position='right' style={myStyle} id='daw'  />
       </div>
-    </>
+    </div>
   );
 }
 
