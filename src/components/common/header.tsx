@@ -4,7 +4,7 @@ const Header = (props:any) => {
   return (
     <div className="custom-node__header flex justify-between  text-center font-semibold ">
       <div></div>
-      <p className=" text-[14px] font-semibold text-left">{props.title}</p>
+      <p className=" text-[14px] font-semibold text-left text-[#F2F2F2]">{props.title}</p>
       {
         props.menu &&  <HiOutlineDotsHorizontal className=" cursor-pointer text-blue-400" />
 

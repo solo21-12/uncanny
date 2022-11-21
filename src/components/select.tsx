@@ -42,17 +42,17 @@ export default function Select({ value, handleId, nodeId,firstTitle,secondTitle 
 
   return (
     <div className="custom-node__select ">
-      <div className=' float-right text-gray-400  text-[14px] py-1'> {firstTitle} </div>
-      <select className="nodrag bg-black text-[12px] text-white h-6 " onChange={onChange} value={value}>
+      <div className=' float-right text-[#9199B0]  text-[14px] py-1'> {firstTitle} </div>
+      <select className="nodrag bg-[#0C0D10] text-[12px] text-[#676D7D]  h-6 " onChange={onChange} value={value}>
         
         {options.map((option) => (
-          <option key={option.value} value={option.value} className="bg-black ">
+          <option key={option.value} value={option.value} className="bg-[#0C0D10] ">
             {option.label}
             
           </option>
         ))}
       </select>
-      <div className='text-gray-500 mt-4 text-[14px]'> {secondTitle} </div>
+      <div className='text-gray-500 mt-4 text-[14px] pb-1'> {secondTitle} </div>
       {/* <Handle type="source" position="right" id={handleId}  style={{ background: '#9ca3af', height:'12px',width:'8px' }}/> */}
 
     </div>

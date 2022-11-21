@@ -71,7 +71,7 @@ export const node = [
                 // handle2: 'smoothstep', 
             },
         },
-        position: { x: 650, y: 440 },
+        position: { x: 650, y: 460 },
     },
     {
         id: '7',
@@ -80,10 +80,10 @@ export const node = [
             label: ' ',
             selects: {
                 'handle-0': 'k_dpm_2a',
-                'handle-1': 'Variant', 
-                'handle-2': 'Creativity',
-                'handle-3': 'Details',
-                'handle-4': 'seed',
+                // 'handle-1': 'Variant', 
+                // 'handle-2': 'Creativity',
+                // 'handle-3': 'Details',
+                // 'handle-4': 'seed',
             },
         },
         position: { x: 350, y: 80 },
@@ -104,15 +104,8 @@ export const edges = [
     {
         id: 'e4-5',
         source: '4',
-        target: '5',
-        type: 'smoothstep',
-        sourceHandle: 'handle-0',
-        data: {
-            selectIndex: 0,
-        },
-        markerEnd: {
-            type: MarkerType.ArrowClosed,
-        },
+        target: '7',
+        sourceHandle: 'seed',
     },
     {
         id: 'e4-6',

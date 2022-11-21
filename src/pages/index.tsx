@@ -68,14 +68,14 @@ const OverviewFlow = () => {
   const edgeOptions = {
     animated: false,
     style: {
-      stroke: "#87CEEB",
+      stroke: "#2268A9",
     },
   };
-  const connectionLineStyle = { stroke: "#87CEEB" };
+  const connectionLineStyle = { stroke: "#2268A9" };
   return (
     <div
       style={{ width: "100%", height: "100vh" }}
-      className=" bg-neutral-700 "
+      className=" bg-[#1F2021] "
     >
       <ReactFlow
         nodes={nodes}
