@@ -13,8 +13,6 @@ import ReactFlow, {
   applyNodeChanges,
   NodeChange,
   EdgeChange,
-  
-  
 } from "reactflow";
 
 import {
@@ -23,7 +21,7 @@ import {
 } from "./../components/initial-elements";
 import CustomNode from "./../components/CustomNode";
 import ImagePreview1 from "./../components/imagePreview1";
-import SeedNode from "./../components/seedNode";
+import SeedNode from "../components/seedNode";
 import BasicFilter2 from "./../components/basicFilter2";
 import InvertImage from "./../components/invertImage";
 import ImagePreview2 from "./../components/imagePreview2";
@@ -41,8 +39,7 @@ const nodeTypes = {
   basicFilter2: BasicFilter2,
   invert: InvertImage,
   node_2: Node2,
-  MainHeader:MainHeader
-  
+  MainHeader: MainHeader,
 };
 
 const minimapStyle = {
@@ -53,7 +50,6 @@ const onInit = (reactFlowInstance: any) =>
   console.log("flow loaded:", reactFlowInstance);
 
 const OverviewFlow = () => {
-  
   const [nodes, setNodes] = useNodesState(initialNodes);
   const [edges, setEdges] = useEdgesState(initialEdges);
   const onNodesChange = useCallback(
@@ -76,10 +72,7 @@ const OverviewFlow = () => {
   };
   const connectionLineStyle = { stroke: "#2268A9" };
   return (
-    <div
-      style={{ width: "100%", height: "100vh" }}
-      className=" bg-[#1F2021] "
-    >
+    <div style={{ width: "100%", height: "100vh" }} className=" bg-[#1F2021] ">
       <ReactFlow
         nodes={nodes}
         edges={edges}

@@ -30,19 +30,19 @@ function Node2({ id, data }) {
   const data_options = [
     {
       rigth: 'Variant',
-      left: '0.5000'
+      left: 1
     },
     {
       rigth: 'Creativity',
-      left: '7.5000'
+      left: 7
     },
     {
       rigth: 'Details',
-      left: '20'
+      left: 20
     },
     {
       rigth: 'Seed',
-      left: '6554867'
+      left: 6554867
     }
   ]
   return (
@@ -58,9 +58,8 @@ function Node2({ id, data }) {
       </div>
       <div className=' text-right  p-2  text-[10px] text-gray-400'> 2 image
       </div>
-      <div className='  max-w-[180px]  text-[11px] mx-auto py-3  font-light'>
-        Futuristic translucent basketball
-        <div> sneaker design </div>
+      <div className='  max-w-[220px]  text-[11px] mx-auto py-3  font-light'>
+      <input type="text" className="bg-[#0F1115] w-full h-10" placeholder='Futuristic translucent basketball  sneaker design' />
       </div>
       <div className="custom-node__body  mb-3">
         {Object.keys(data.selects).map((handleId) => (
