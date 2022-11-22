@@ -11,7 +11,7 @@ export const node = [
                 // handle1: 'smoothstep',
             },
         },
-        position: { x: 650, y: 80 },
+        position: { x: 650, y: 210 },
     },
     {
         id: '2',
@@ -23,7 +23,7 @@ export const node = [
                 // handle1: 'smoothstep',
             },
         },
-        position: { x: 1050, y: 20 },
+        position: { x: 1050, y: 150 },
     },
     {
         id: '3',
@@ -35,7 +35,7 @@ export const node = [
                 // handle1: 'smoothstep',
             },
         },
-        position: { x: 1050, y: 400 },
+        position: { x: 1050, y: 530 },
     },
     {
         id: '4',
@@ -47,7 +47,7 @@ export const node = [
                 // handle1: 'smoothstep',
             },
         },
-        position: { x: 0, y: 100 },
+        position: { x: 0, y: 230 },
     },
     {
         id: '5',
@@ -59,7 +59,7 @@ export const node = [
                 // handle1: 'smoothstep',
             },
         },
-        position: { x: 650, y: 260 },
+        position: { x: 650, y: 390 },
     },
     {
         id: '6',
@@ -71,7 +71,7 @@ export const node = [
                 // handle2: 'smoothstep', 
             },
         },
-        position: { x: 650, y: 460 },
+        position: { x: 650, y: 630 },
     },
     {
         id: '7',
@@ -86,8 +86,13 @@ export const node = [
                 // 'handle-4': 'seed',
             },
         },
-        position: { x: 350, y: 80 },
+        position: { x: 350, y: 210 },
     },
+    // {
+    //     id: '8',
+    //     type: 'MainHeader',
+    //     position: { x: 0, y: 0 },
+    // },
 ];
 
 export const edges = [

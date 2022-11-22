@@ -28,6 +28,7 @@ import BasicFilter2 from "./../components/basicFilter2";
 import InvertImage from "./../components/invertImage";
 import ImagePreview2 from "./../components/imagePreview2";
 import Node2 from "./../components/node-2";
+import MainHeader from "../components/mainHeader";
 
 import "reactflow/dist/style.css";
 // import './overview.css';
@@ -40,6 +41,8 @@ const nodeTypes = {
   basicFilter2: BasicFilter2,
   invert: InvertImage,
   node_2: Node2,
+  MainHeader:MainHeader
+  
 };
 
 const minimapStyle = {

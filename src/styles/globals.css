@@ -64,4 +64,6 @@
     margin-top: 5px;
     font-size: 14px;
   }
-  
+  .circle{
+    border-radius: 50%;
+  }
